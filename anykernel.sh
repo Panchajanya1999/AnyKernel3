@@ -68,6 +68,12 @@ if mountpoint -q /data; then
   done
 fi
 
+#patch fstab for mounting data partition
+patch_fstab fstab.qcom /data f2fs options "fsync_mode=nobarrier" "fsync_mode=posix,atgc,background_gc=sync"
+
+#patch fstab for system partion
+patch_fstab fstab.qcom / ext4 options "barrier=1" "nobarrier,i_version"
+
 write_boot;
 ## end install
 
