@@ -23,6 +23,7 @@ supported.patchlevels=
 block=/dev/block/bootdevice/by-name/boot;
 is_slot_device=0;
 ramdisk_compression=none;
+patch_vbmeta_flag=auto;
 
 
 ## AnyKernel methods (DO NOT CHANGE)
@@ -30,6 +31,8 @@ ramdisk_compression=none;
 . tools/ak3-core.sh;
 
 ## AnyKernel install
+
+## AnyKernel boot install
 dump_boot;
 
 if mountpoint -q /data; then
@@ -75,5 +78,22 @@ patch_fstab /vendor/etc/fstab.qcom /data f2fs options "fsync_mode=nobarrier" "fs
 patch_fstab /vendor/etc/fstab.qcom / ext4 options "barrier=1" "nobarrier,i_version"
 
 write_boot;
-## end install
+## end boot install
+
+
+# shell variables
+#block=vendor_boot;
+#is_slot_device=1;
+#ramdisk_compression=auto;
+#patch_vbmeta_flag=auto;
+
+# reset for vendor_boot patching
+#reset_ak;
+
+
+## AnyKernel vendor_boot install
+#split_boot; # skip unpack/repack ramdisk since we don't need vendor_ramdisk access
+
+#flash_boot;
+## end vendor_boot install
 
