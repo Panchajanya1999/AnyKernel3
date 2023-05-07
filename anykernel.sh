@@ -12,9 +12,9 @@ do.cleanup=1
 do.cleanuponabort=0
 device.name1=bluejay
 device.name2=Bluejay
-device.name3=
-device.name4=
-device.name5=
+device.name3=raviole
+device.name4=oriole
+device.name5=raven
 supported.versions=13
 supported.patchlevels=
 '; } # end properties
