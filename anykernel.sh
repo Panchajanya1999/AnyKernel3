@@ -15,7 +15,7 @@ device.name2=redfin
 device.name3=coral
 device.name4=
 device.name5=
-supported.versions=11 - 13
+supported.versions=11 - 15
 supported.patchlevels=
 '; } # end properties
 
